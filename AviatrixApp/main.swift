@@ -74,39 +74,45 @@ func fuelCheck(myPlane : Aviatrix, destination : String) -> Bool {
     return true
 }
 
+var author = "Elizabeth"
 var plane = Aviatrix()
 
-print("Welcome to the Aviatrix Flight System by _________")
-plane.start()
+print("Welcome to the Aviatrix Flight System by \(author)")
+if plane.start(){
 
-print("You're currently in _________")
+    print("You're currently in _________")
 
-var command = ""
+    var command = ""
 
-while command != "q" {
+    while command != "q" {
+        print(" ")
+        print("What would you like to do?")
+        print("a) 📊 check the plane gauges")
+        print("b) 🛫 fly to a different city")
+        print("c) ⛽ refuel")
+        print("q) ❌ quit")
+        print(" ")
+        print("Action: ")
+        command = readLine()!
+        
+        if command == "a" {
+            gauges(myPlane: plane)
+        }
+        else if command == "b" {
+            fly(myPlane: plane)
+        }
+        else if command == "c" {
+            refuel(myPlane: plane)
+        }
+        else if command != "q" {
+            print("⚠️Please enter a valid command⚠️")
+        }
+    }
+
+
     print(" ")
-    print("What would you like to do?")
-    print("a) 📊 check the plane gauges")
-    print("b) 🛫 fly to a different city")
-    print("c) ⛽ refuel")
-    print("q) ❌ quit")
-    print(" ")
-    print("Action: ")
-    command = readLine()!
-    
-    if command == "a" {
-        gauges(myPlane: plane)
-    }
-    else if command == "b" {
-        fly(myPlane: plane)
-    }
-    else if command == "c" {
-        refuel(myPlane: plane)
-    }
-    else if command != "q" {
-        print("⚠️Please enter a valid command⚠️")
-    }
+    print("Thanks for flying with Singapore airline!")
 }
-
-print(" ")
-print("Thanks for flying with _________ airline!")
+else{
+    print("The plane hasn't started!")
+}

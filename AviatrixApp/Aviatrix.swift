@@ -9,9 +9,11 @@
 import Foundation
 
 class Aviatrix {
+    var running = false
     
     func start() -> Bool {
-        return true
+        running = true
+        return running
     }
     
     func refuel() {
