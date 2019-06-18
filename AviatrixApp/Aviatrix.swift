@@ -23,13 +23,13 @@ class Aviatrix {
     }
     
     func findNumberofGallons(data: AviatrixData)-> Double{
-        var buyGallons = maxFuel - fuelLevel
-        
-        fuelCost += data.fuelPrices[location]! * (buyGallons)
+        let buyGallons = maxFuel - fuelLevel
         return buyGallons
     }
     
-    func refuel(){
+    func refuel(data: AviatrixData){
+        numbers = AviatrixData()
+        fuelCost += data.fuelPrices[location]! * (findNumberofGallons(data: numbers))
         fuelLevel = 5000
     }
     
