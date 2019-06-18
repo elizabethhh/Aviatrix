@@ -13,11 +13,11 @@ func gauges(myPlane : Aviatrix) {
     print(" ")
     print("| Running:   | ✅")
     print("| Location:  | \(myPlane.location)")
-//    print("| Distance:  | \(myPlane.distanceTraveled) miles")
-//    print("| Fuel:      | \(myPlane.fuelLevel) gallons")
-//    print("| Max Fuel:  | \(myPlane.maxFuel) gallons")
-//    print("| MPG:       | \(myPlane.milesPerGallon)")
-//    print("| Fuel Bill: | \(myPlane.fuelCost)")
+    print("| Distance:  | \(myPlane.distanceTraveled) miles")
+    print("| Fuel:      | \(myPlane.fuelLevel) gallons")
+    print("| Max Fuel:  | \(myPlane.maxFuel) gallons")
+    print("| MPG:       | \(myPlane.milesPerGallon)")
+    print("| Fuel Bill: | \(myPlane.fuelCost)")
 }
 
 func fly(myPlane : Aviatrix) {
@@ -43,7 +43,7 @@ func fly(myPlane : Aviatrix) {
         print("🛫 Flying...")
         
         if fuelCheck(myPlane: myPlane, destination : desiredLocation) {
-            myPlane.flyTo(destination: desiredLocation)
+            myPlane.flyTo(data: number, destination: desiredLocation)
             print("🛬 You've arrived in \(myPlane.location)!")
             gauges(myPlane: myPlane)
         }
@@ -54,12 +54,14 @@ func fly(myPlane : Aviatrix) {
     
 }
 
-func refuel(myPlane : Aviatrix) {
-    let refuelData = myPlane.refuel()
+func refuel(data: AviatrixData, myPlane : Aviatrix) {
+    var prices = AviatrixData()
+    
     
     print("Refueling...")
-    print("⛽ Here in _________, jet fuel costs _________")
-    print("⛽ You refueled _________ gallons totaling _________")
+    print("⛽ Here in \(myPlane.location), jet fuel costs $\(data.fuelPrices[myPlane.location]!)")
+    print("⛽ You refueled \(myPlane.findNumberofGallons(data: prices)) gallons totaling \(myPlane.findNumberofGallons(data: prices) * prices.fuelPrices[myPlane.location]!)")
+    let refuelData = myPlane.refuel()
 }
 
 func fuelCheck(myPlane : Aviatrix, destination : String) -> Bool {
@@ -79,11 +81,12 @@ func fuelCheck(myPlane : Aviatrix, destination : String) -> Bool {
 
 var author = "Elizabeth"
 var plane = Aviatrix()
+var numbers = AviatrixData()
 
 print("Welcome to the Aviatrix Flight System by \(author)")
 var check = plane.start()
 
-while check == true{
+if check == true{
     print("You're currently in \(plane.location)")
 
     var command = ""
@@ -106,15 +109,19 @@ while check == true{
             fly(myPlane: plane)
         }
         else if command == "c" {
-            refuel(myPlane: plane)
+            refuel(data: numbers, myPlane: plane)
         }
         else if command != "q" {
             print("⚠️Please enter a valid command⚠️")
         }
     }
+
+
+
+    print(" ")
+    print("Thanks for flying with Singapore airline!")
 }
-
-print(" ")
-print("Thanks for flying with Singapore airline!")
-
+else{
+    print("Not able to fly!")
+}
 
