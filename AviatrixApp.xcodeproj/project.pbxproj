@@ -27,7 +27,7 @@
 /* Begin PBXFileReference section */
 		502D974920CDF4C10059F502 /* AviatrixApp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AviatrixApp; sourceTree = BUILT_PRODUCTS_DIR; };
 		502D974C20CDF4C10059F502 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		502D975320CDF54F0059F502 /* Aviatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aviatrix.swift; sourceTree = "<group>"; };
+		502D975320CDF54F0059F502 /* Aviatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aviatrix.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		502D975520CDF55D0059F502 /* AviatrixData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AviatrixData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
